@@ -33,7 +33,7 @@ pipeline {
         stage("Run E2E Tests") {
 			steps {
              sh """
-                echo "PROFILE=${params.profile}" .env && \
+                echo "PROFILE=${params.profile}" > .env && \
                 docker-compose up rune2e
                 """
 			}
