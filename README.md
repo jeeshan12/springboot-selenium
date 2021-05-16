@@ -84,7 +84,6 @@ docker build -t dragon12/springboot-selenium .
 ```
 echo "PROFILE=remote" > .env && docker-compose up rune2e 
 ```
-In the `application.yml` file make sure the property `context` is `remote`.
 
 #### We can scale the chrome and firefox containers by running below commands
 ```
