@@ -18,7 +18,7 @@ pipeline {
             }
         }
 
-        stage(Build Image) {
+        stage('Build Image') {
             steps {
                 sh 'docker build -t dragon12/springboot-selenium .'
             }
@@ -35,7 +35,7 @@ pipeline {
                 """
          }
 
-          stage('Run E2E Tests') {
+          stage('Destroy Selenium Grid') {
               sh 'docker-compose down'
          }
 
