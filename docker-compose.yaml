@@ -1,0 +1,37 @@
+version: "3"
+services:
+  selenium-hub:
+    image: selenium/hub
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+    environment:
+      GRID_MAX_SESSION: 16
+      GRID_BROWSER_TIMEOUT: 3000
+      GRID_TIMEOUT: 3000
+  chrome:
+    image: selenium/node-chrome
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=selenium-hub
+      - HUB_PORT_4444_TCP_PORT=4444
+      - NODE_MAX_SESSION=4
+      - NODE_MAX_INSTANCES=4
+  firefox:
+    image: selenium/node-firefox
+    depends_on:
+      - selenium-hub
+    shm_size: '1gb'
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=selenium-hub
+      - HUB_PORT_4444_TCP_PORT=4444
+  rune2e:
+    image: dragon12/springboot-selenium
+    container_name: springboot_selenium_tests
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - TESTNGMODULE=testng.xml
+      - PROFILE=${PROFILE}
