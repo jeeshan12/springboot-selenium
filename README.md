@@ -8,7 +8,7 @@
 - [Pre-requisites](#pre-requisites)
 - [Libraries](#libraries)
 - [Running Tests](#running-tests)
-- [Running Through IntelliJ](#running-through-intellij)
+- [Running Through IDE And Remote Execution](#running-through-ide-remote-execution)
 
 ## Authors
 * [Mohd Jeeshan](https://github.com/jeeshan12)
