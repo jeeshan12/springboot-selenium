@@ -19,7 +19,7 @@
         <selenium.webdriver.manager.version>4.4.3</selenium.webdriver.manager.version>
         <testng.version>7.4.0</testng.version>
         <faker.version>1.0.2</faker.version>
-        <maven-compiler-plugin.version>3.2.0</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
         <maven-surefire.version>3.0.0-M3</maven-surefire.version>
         <testproject.version>1.2.0-RELEASE</testproject.version>
