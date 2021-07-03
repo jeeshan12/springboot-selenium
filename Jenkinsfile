@@ -26,7 +26,7 @@ pipeline {
 
         stage("Set up Selenium Grid") {
 			steps{
-            sh "docker-compose -d hub node chrome"
+            sh "docker-compose -d selenium-hub chrome firefox"
 			}
         }
 
