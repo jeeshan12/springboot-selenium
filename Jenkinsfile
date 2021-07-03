@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'maven:3.8.1-adoptopenjdk-11'
+            args '-v $HOME/.m2:/root/.m2'
+        }
+    }
 
     parameters {
     choice(choices: 'default\nremote\nqa\ndev', description: 'which profile to run', name: 'profile')
@@ -7,12 +12,6 @@ pipeline {
     }
     stages {
         stage("Package TestProject Jar") {
-            agent {
-                docker {
-                   image "maven:3-alpine"
-                   args "-v $HOME/.m2:/root/.m2"
-                 }
-            }
             steps {
                 sh "mvn clean package -DskipTests"
             }
